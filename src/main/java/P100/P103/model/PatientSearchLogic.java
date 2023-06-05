@@ -5,8 +5,8 @@ import P100.P103.dao.PatientSearchDAO;
 import java.util.List;
 
 public class PatientSearchLogic {
-    public void searchPatient(PatientSearch patientUpdate) {
+    public List<PatientSearchResult> searchPatient(String patfname, String patlname) {
         PatientSearchDAO dao = new PatientSearchDAO();
-        List<PatientSearch> patient = dao.searchPatients(patientUpdate);
+        return dao.searchPatient(patfname, patlname);
     }
 }

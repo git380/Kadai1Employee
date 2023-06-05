@@ -1,7 +1,7 @@
 package P100.P103.servlet;
 
-import P100.P103.dao.PatientSearchDAO;
-import P100.P103.model.PatientSearch;
+import P100.P103.model.PatientSearchLogic;
+import P100.P103.model.PatientSearchResult;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -31,8 +31,8 @@ public class PatientSearchServlet extends HttpServlet {
         String patlname = request.getParameter("patlname");
 
         // 患者の検索
-        PatientSearchDAO searchDAO = new PatientSearchDAO();
-        List<PatientSearch> patients = searchDAO.searchPatients(patfname, patlname);
+        PatientSearchLogic searchLogic = new PatientSearchLogic();
+        List<PatientSearchResult> patients = searchLogic.searchPatient(patfname, patlname);
 
         // 検索結果をリクエスト属性に設定
         request.setAttribute("patients", patients);
