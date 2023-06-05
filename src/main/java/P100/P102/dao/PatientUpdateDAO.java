@@ -1,15 +1,15 @@
 package P100.P102.dao;
 
 import A100.dao.DAOParam;
-import P100.P102.model.PatientRegistration;
+import P100.P102.model.PatientUpdate;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class PatientDAO extends DAOParam {
-    public void updatePatient(PatientRegistration patient) {// データベースへ接続
+public class PatientUpdateDAO extends DAOParam {
+    public void updatePatient(PatientUpdate patient) {// データベースへ接続
         try (Connection connection = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
             // SQL文の準備
             String sql = "UPDATE patient SET hokenmei = ?, hokenexp = ? WHERE patid = ?";

@@ -1,7 +1,7 @@
 package P100.P102.servlet;
 
-import P100.P102.model.PatientRegistration;
-import P100.P102.model.PatientRegistrationLogic;
+import P100.P102.model.PatientUpdate;
+import P100.P102.model.PatientUpdateLogic;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -34,8 +34,8 @@ public class PatientUpdateServlet extends HttpServlet {
         String hokenexp = request.getParameter("hokenexp");
 
         // 登録処理の実行
-        PatientRegistration patient = new PatientRegistration(patId, hokenmei, hokenexp);
-        PatientRegistrationLogic bo = new PatientRegistrationLogic();
+        PatientUpdate patient = new PatientUpdate(patId, hokenmei, hokenexp);
+        PatientUpdateLogic bo = new PatientUpdateLogic();
         bo.updatePatient(patient);
 
         System.out.println(patId + hokenmei + hokenexp);
