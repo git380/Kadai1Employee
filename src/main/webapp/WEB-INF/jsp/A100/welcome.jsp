@@ -16,12 +16,12 @@
     <c:if test="${not empty sessionScope.empId}">
         <li><a href="/Kadai1Employee/LogoutServlet">ログアウト</a></li>
         <li><a href="/Kadai1Employee/PwChangeServlet">パスワードの変更</a></li>
-        <li><a href="/Kadai1Employee/PwChangeServlet">患者を登録する</a></li>
-        <li><a href="/Kadai1Employee/PwChangeServlet">患者の保険情報の変更</a></li>
-        <li><a href="/Kadai1Employee/PwChangeServlet">患者の全検索</a></li>
-        <li><a href="/Kadai1Employee/PwChangeServlet">薬投与を指示</a></li>
-        <li><a href="/Kadai1Employee/PwChangeServlet">薬投与を削除</a></li>
-        <li><a href="/Kadai1Employee/PwChangeServlet">薬投与の確定</a></li>
+        <li><a href="/Kadai1Employee/PatientRegistrationServlet">患者を登録する</a></li>
+        <li><a href="/Kadai1Employee/PatientUpdateServlet">患者の保険情報の変更</a></li>
+        <li><a href="/Kadai1Employee/PatientSearchServlet">患者の全検索</a></li>
+        <li><a href="/Kadai1Employee/MedicineSelectionServlet">薬投与を指示</a></li>
+        <li><a href="/Kadai1Employee/MedicineDeletionServlet">薬投与を削除</a></li>
+        <li><a href="/Kadai1Employee/TreatmentConfirmationServlet">薬投与の確定</a></li>
     </c:if>
 </ul>
 </body>
