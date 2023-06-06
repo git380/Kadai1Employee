@@ -3,11 +3,11 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>スッキリ商店</title>
+    <title>従業員画面</title>
 </head>
 </head>
 <body>
-<h1>スッキリ商店</h1>
+<h1>従業員画面</h1>
 <p>ログアウトしました</p>
 <a href="/Kadai1Employee/">トップページへ戻る</a>
 </body>

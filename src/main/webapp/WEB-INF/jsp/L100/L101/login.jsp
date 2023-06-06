@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>管理者画面ログイン</title>
+    <title>従業員ログイン</title>
 </head>
 <body>
 <form action="/Kadai1Employee/LoginServlet" method="post">

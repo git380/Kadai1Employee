@@ -5,10 +5,10 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>管理者画面</title>
+    <title>従業員画面</title>
 </head>
 <body>
-<h1>ようこそ!管理者画面です。</h1>
+<h1>ようこそ!従業員画面です。</h1>
 <ul>
     <c:if test="${empty sessionScope.empId}">
         <li><a href="/Kadai1Employee/LoginServlet">ログイン</a></li>

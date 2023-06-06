@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>スッキリ商店</title>
+    <title>従業員画面</title>
 </head>
 <body>
 <p>ようこそ<c:out value="${empId}"/>さん</p>
