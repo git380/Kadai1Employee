@@ -1,4 +1,4 @@
-<%@ page import="P100.P103.model.PatientSearchResult" %>
+<%@ page import="P100.P103.model.PatientSearch" %>
 <%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>検索結果</h1>
-<% List<PatientSearchResult> patients = (List<PatientSearchResult>) request.getAttribute("patients"); %>
+<% List<PatientSearch> patients = (List<PatientSearch>) request.getAttribute("patients"); %>
 <% if (patients != null && !patients.isEmpty()) { %>
 <table>
     <tr>
@@ -19,7 +19,7 @@
         <th>保険名</th>
         <th>保険有効期限</th>
     </tr>
-    <% for (PatientSearchResult patient : patients) { %>
+    <% for (PatientSearch patient : patients) { %>
     <tr>
         <td><%= patient.getPatid() %></td>
         <td><%= patient.getPatfname() %></td>

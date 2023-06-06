@@ -13,13 +13,13 @@ import java.io.IOException;
 public class MedicineDeletionServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String medicineId = request.getParameter("medicineId");
 
         MedicineDeletionLogic logic = new MedicineDeletionLogic();
         logic.deleteMedicine(medicineId);
 
-        response.sendRedirect("/Kadai1Employee");
+        response.sendRedirect("/WEB-INF/jsp/D100/D101/medicineConfirmation.jsp");
     }
 }

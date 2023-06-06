@@ -19,7 +19,7 @@ public class PatientRegistrationServlet extends HttpServlet {
             throws ServletException, IOException {
 
         // フォワード
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/P100/P101/pRegistration.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/P100/P101/patientRegistration.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -42,6 +42,6 @@ public class PatientRegistrationServlet extends HttpServlet {
 
         System.out.println(patId + patFname + patLname + hokenmei + hokenexp);
 
-        response.sendRedirect("/Kadai1Employee/LoginServlet");
+        response.sendRedirect("/Kadai1Employee/WelcomeServlet");
     }
 }

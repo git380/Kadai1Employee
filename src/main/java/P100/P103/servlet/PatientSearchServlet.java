@@ -1,7 +1,7 @@
 package P100.P103.servlet;
 
 import P100.P103.model.PatientSearchLogic;
-import P100.P103.model.PatientSearchResult;
+import P100.P103.model.PatientSearch;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,7 +19,7 @@ public class PatientSearchServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // フォワード
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/P100/P103/pSearch.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/P100/P103/patientSearch.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -32,13 +32,13 @@ public class PatientSearchServlet extends HttpServlet {
 
         // 患者の検索
         PatientSearchLogic searchLogic = new PatientSearchLogic();
-        List<PatientSearchResult> patients = searchLogic.searchPatient(patfname, patlname);
+        List<PatientSearch> patients = searchLogic.searchPatient(patfname, patlname);
 
         // 検索結果をリクエスト属性に設定
         request.setAttribute("patients", patients);
 
         // フォワード
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/P100/P103/pSearchResult.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/P100/P103/patientSearchResult.jsp");
         dispatcher.forward(request, response);
     }
 }

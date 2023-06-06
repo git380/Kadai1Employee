@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet("/MedicineSelectionServlet")
 public class MedicineSelectionServlet extends HttpServlet {
@@ -18,12 +17,17 @@ public class MedicineSelectionServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        MedicineLogic logic = new MedicineLogic();
-        List<Medicine> medicines = logic.getAllMedicines();
 
-        request.setAttribute("medicines", medicines);
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/P100/D101/medicineSelection.jsp");
+        // フォワード
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/D100/D101/medicineSelection.jsp");
         dispatcher.forward(request, response);
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        MedicineLogic logic = new MedicineLogic();
+        logic.getAllMedicines();
+
+        response.sendRedirect("/Kadai1Employee/");
     }
 }

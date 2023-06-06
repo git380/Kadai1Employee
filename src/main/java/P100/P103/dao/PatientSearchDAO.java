@@ -1,7 +1,7 @@
 package P100.P103.dao;
 
 import A100.dao.DAOParam;
-import P100.P103.model.PatientSearchResult;
+import P100.P103.model.PatientSearch;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,8 +13,8 @@ import java.util.List;
 
 public class PatientSearchDAO extends DAOParam {
     // 患者を検索するメソッド
-    public List<PatientSearchResult> searchPatient(String patfname, String patlname) {
-        List<PatientSearchResult> patients = new ArrayList<>();
+    public List<PatientSearch> searchPatient(String patfname, String patlname) {
+        List<PatientSearch> patients = new ArrayList<>();
 
         try (Connection connection = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
             // SQL文の準備
@@ -35,7 +35,7 @@ public class PatientSearchDAO extends DAOParam {
                 String hokenmei = resultSet.getString("hokenmei");
                 String hokenexp = resultSet.getString("hokenexp");
 
-                PatientSearchResult patient = new PatientSearchResult(patid, patfname, patlname, hokenmei, hokenexp);
+                PatientSearch patient = new PatientSearch(patid, patfname, patlname, hokenmei, hokenexp);
                 patients.add(patient);
             }
         } catch (SQLException e) {

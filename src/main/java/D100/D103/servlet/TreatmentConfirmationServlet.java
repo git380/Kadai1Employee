@@ -13,11 +13,11 @@ import java.io.IOException;
 public class TreatmentConfirmationServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         TreatmentConfirmationLogic logic = new TreatmentConfirmationLogic();
         logic.confirmTreatment();
 
-        response.sendRedirect("/Kadai1Employee");
+        response.sendRedirect("/WEB-INF/jsp/D100/D101/treatmentConfirmation.jsp");
     }
 }

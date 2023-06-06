@@ -1,13 +1,13 @@
 package P100.P103.model;
 
-public class PatientSearchResult {
+public class PatientSearch {
     private String patid;
     private String patfname;
     private String patlname;
     private String hokenmei;
     private String hokenexp;
 
-    public PatientSearchResult(String patid, String patfname, String patlname, String hokenmei, String hokenexp) {
+    public PatientSearch(String patid, String patfname, String patlname, String hokenmei, String hokenexp) {
         this.patid = patid;
         this.patfname = patfname;
         this.patlname = patlname;
