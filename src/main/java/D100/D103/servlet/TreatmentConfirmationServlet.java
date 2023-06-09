@@ -14,15 +14,6 @@ import java.io.IOException;
 @WebServlet("/TreatmentConfirmationServlet")
 public class TreatmentConfirmationServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-        // フォワード
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/D100/D103/treatmentConfirmation.jsp");
-        dispatcher.forward(request, response);
-    }
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // リクエストパラメータから処理情報を取得
         String patId = request.getParameter("patId");

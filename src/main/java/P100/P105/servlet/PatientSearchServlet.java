@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet("/PatientSearchServlet")
@@ -23,7 +24,7 @@ public class PatientSearchServlet extends HttpServlet {
 
         // 患者の検索
         PatientSearchLogic searchLogic = new PatientSearchLogic();
-        List<PatientSearch> patients = searchLogic.searchPatient();
+        ArrayList<PatientSearch> patients = searchLogic.searchPatient();
 
         // 検索結果をリクエスト属性に設定
         request.setAttribute("patients", patients);

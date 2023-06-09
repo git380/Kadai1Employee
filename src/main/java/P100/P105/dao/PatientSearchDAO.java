@@ -13,8 +13,8 @@ import java.util.List;
 
 public class PatientSearchDAO extends DAOParam {
     // 患者を検索するメソッド
-    public List<PatientSearch> searchPatient() {
-        List<PatientSearch> patients = new ArrayList<>();
+    public ArrayList<PatientSearch> searchPatient() {
+        ArrayList<PatientSearch> patients = new ArrayList<>();
 
         try (Connection connection = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
             // SQL文の準備

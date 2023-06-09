@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet("/TreatmentSelectionServlet")
@@ -16,8 +17,9 @@ public class TreatmentSelectionServlet extends HttpServlet {
             throws ServletException, IOException {
 
         String patId = request.getParameter("patId");
-        System.out.println("aaaaaaa" + patId);
-        request.setAttribute("patId", patId);
+        System.out.println(patId);
+        HttpSession session = request.getSession();
+        session.setAttribute("patId", patId);
 
         // フォワード
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/D100/D101/treatmentSelection.jsp");
@@ -38,6 +40,6 @@ public class TreatmentSelectionServlet extends HttpServlet {
         request.setAttribute("impDate", impDate);
 
         // JSPにフォワード
-        request.getRequestDispatcher("/TreatmentConfirmationServlet").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/jsp/D100/D101/treatmentSelectionResult.jsp").forward(request, response);
     }
 }

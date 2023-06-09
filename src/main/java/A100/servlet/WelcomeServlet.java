@@ -17,4 +17,9 @@ public class WelcomeServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/A100/welcome.jsp");
         dispatcher.forward(request, response);
     }
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/A100/welcome.jsp");
+        dispatcher.forward(request, response);
+    }
 }

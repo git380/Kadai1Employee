@@ -1,6 +1,7 @@
 <%@ page import="P100.P105.model.PatientSearch" %>
 <%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,8 +10,6 @@
 </head>
 <body>
 <h1>検索結果</h1>
-<% List<PatientSearch> patients = (List<PatientSearch>) request.getAttribute("patients"); %>
-<% if (patients != null && !patients.isEmpty()) { %>
 <table>
     <tr>
         <th>患者ID</th>
@@ -20,25 +19,22 @@
         <th>保険有効期限</th>
         <th>指示</th>
     </tr>
-    <% for (PatientSearch patient : patients) { %>
-    <% String aaa = patient.getPatid(); %>
-    <tr>
-        <td><%= aaa %></td>
-        <td><%= patient.getPatfname() %></td>
-        <td><%= patient.getPatlname() %></td>
-        <td><%= patient.getHokenmei() %></td>
-        <td><%= patient.getHokenexp() %></td>
-        <td>
-            <form action="/Kadai1Employee/TreatmentSelectionServlet" method="get">
-                <input type="hidden" name="patId" value="${aaa}">
-                <input type="submit" value="指示">
-            </form>
-        </td>
-    </tr>
-    <% } %>
+
+    <c:forEach var="pat" items="${patients}">
+        <tr>
+            <td>${pat.patid}</td>
+            <td>${pat.patfname}</td>
+            <td>${pat.patlname}</td>
+            <td>${pat.hokenmei}</td>
+            <td>${pat.hokenexp}</td>
+            <td>
+                <form action="/Kadai1Employee/TreatmentSelectionServlet" method="get">
+                    <input type="hidden" name="patId" value="${pat.patid}">
+                    <input type="submit" value="指示">
+                </form>
+            </td>
+        </tr>
+    </c:forEach>
 </table>
-<% } else { %>
-<p>該当する患者は見つかりませんでした。</p>
-<% } %>
 </body>
 </html>

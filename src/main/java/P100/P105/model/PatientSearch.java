@@ -1,6 +1,10 @@
 package P100.P105.model;
 
-public class PatientSearch {
+import java.io.Serializable;
+
+public class PatientSearch implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private String patid;
     private String patfname;
     private String patlname;
