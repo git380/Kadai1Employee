@@ -15,6 +15,10 @@ public class TreatmentSelectionServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
+        String patId = request.getParameter("patId");
+        System.out.println("aaaaaaa" + patId);
+        request.setAttribute("patId", patId);
+
         // フォワード
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/D100/D101/treatmentSelection.jsp");
         dispatcher.forward(request, response);

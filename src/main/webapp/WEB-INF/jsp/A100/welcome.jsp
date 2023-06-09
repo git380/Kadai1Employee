@@ -18,8 +18,10 @@
         <li><a href="/Kadai1Employee/PwChangeServlet">パスワードの変更</a></li>
         <li><a href="/Kadai1Employee/PatientRegistrationServlet">患者を登録する</a></li>
         <li><a href="/Kadai1Employee/PatientUpdateServlet">患者の保険情報の変更</a></li>
+        <li><a href="/Kadai1Employee/PatientExpirationServlet">保証が切れているか</a></li>
         <li><a href="/Kadai1Employee/PatientSearchServlet">患者の全検索</a></li>
-        <li><a href="/Kadai1Employee/TreatmentSelectionServlet">薬投与を指示</a></li>
+
+
         <li><a href="/Kadai1Employee/TreatmentDeletionServlet">薬投与を削除</a></li>
         <li><a href="/Kadai1Employee/TreatmentConfirmationServlet">薬投与の確定</a></li>
     </c:if>

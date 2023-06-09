@@ -1,4 +1,4 @@
-package P100.P103.model;
+package P100.P105.model;
 
 public class PatientSearch {
     private String patid;
