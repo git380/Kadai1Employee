@@ -1,17 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Treatment Confirmation</title>
+    <meta charset="UTF-8">
+    <title>処置確定画面</title>
 </head>
 <body>
-<h1>Treatment Confirmation</h1>
-<p>Confirm the treatment details.</p>
-<!-- Display treatment details here -->
-<form action="TreatmentConfirmationServlet" method="post">
-  <button type="submit">Confirm Treatment</button>
+<h1>処置確定画面</h1>
+<p>以下の処置情報を確定しますか？</p>
+<p>患者ID: ${patId}</p>
+<p>薬剤ID: ${medicineId}</p>
+<p>数量: ${quantity}</p>
+<p>実施日: ${impDate}</p>
+<form action="treatmentConfirmation" method="post">
+    <input type="hidden" name="patId" value="${patId}">
+    <input type="hidden" name="medicineId" value="${medicineId}">
+    <input type="hidden" name="quantity" value="${quantity}">
+    <input type="hidden" name="impDate" value="${impDate}">
+    <input type="submit" value="処置確定">
 </form>
 </body>
 </html>

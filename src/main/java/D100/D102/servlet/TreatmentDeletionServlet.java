@@ -1,4 +1,4 @@
-package D100.D102.servlet;
+/*package D100.D102.servlet;
 
 import D100.D102.model.MedicineDeletionLogic;
 
@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/MedicineDeletionServlet")
-public class MedicineDeletionServlet extends HttpServlet {
+@WebServlet("/TreatmentDeletionServlet")
+public class TreatmentDeletionServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -22,4 +22,4 @@ public class MedicineDeletionServlet extends HttpServlet {
 
         response.sendRedirect("/WEB-INF/jsp/D100/D101/medicineConfirmation.jsp");
     }
-}
+}*/
