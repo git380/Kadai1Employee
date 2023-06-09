@@ -34,6 +34,6 @@ public class TreatmentSelectionServlet extends HttpServlet {
         request.setAttribute("impDate", impDate);
 
         // JSPにフォワード
-        request.getRequestDispatcher("/Kadai1Employee/").forward(request, response);
+        request.getRequestDispatcher("/TreatmentConfirmationServlet").forward(request, response);
     }
 }

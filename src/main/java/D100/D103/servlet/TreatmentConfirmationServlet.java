@@ -14,10 +14,16 @@ import java.io.IOException;
 @WebServlet("/TreatmentConfirmationServlet")
 public class TreatmentConfirmationServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private TreatmentConfirmation treatment;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
+        // フォワード
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/D100/D103/treatmentConfirmation.jsp");
+        dispatcher.forward(request, response);
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // リクエストパラメータから処理情報を取得
         String patId = request.getParameter("patId");
         String medicineId = request.getParameter("medicineId");
@@ -30,21 +36,14 @@ public class TreatmentConfirmationServlet extends HttpServlet {
         request.setAttribute("quantity", quantity);
         request.setAttribute("impDate", impDate);
 
-        treatment = new TreatmentConfirmation(patId, medicineId, quantity, impDate);
-
-        // フォワード
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/D100/D103/treatmentConfirmation.jsp");
-        dispatcher.forward(request, response);
-    }
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        TreatmentConfirmation treatment = new TreatmentConfirmation(patId, medicineId, quantity, impDate);
 
         // 処置確定処理の実行
         TreatmentConfirmationLogic bo = new TreatmentConfirmationLogic();
         bo.newTreatment(treatment);
 
         // 処置確定画面にフォワード
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/treatmentConfirmation.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/D100/D103/treatmentConfirmation.jsp");
         dispatcher.forward(request, response);
     }
 }

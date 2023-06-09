@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>薬投与指示画面</h1>
-<form action="prescriptionInstruction" method="post">
+<form action="TreatmentSelectionServlet" method="post">
     患者ID:<input type="text" name="patId"><br>
     薬剤ID:<input type="text" name="medicineId"><br>
     数量:<input type="text" name="quantity"><br>

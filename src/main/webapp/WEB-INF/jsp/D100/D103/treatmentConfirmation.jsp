@@ -13,7 +13,7 @@
 <p>薬剤ID: ${medicineId}</p>
 <p>数量: ${quantity}</p>
 <p>実施日: ${impDate}</p>
-<form action="treatmentConfirmation" method="post">
+<form action="TreatmentConfirmationServlet" method="post">
     <input type="hidden" name="patId" value="${patId}">
     <input type="hidden" name="medicineId" value="${medicineId}">
     <input type="hidden" name="quantity" value="${quantity}">
