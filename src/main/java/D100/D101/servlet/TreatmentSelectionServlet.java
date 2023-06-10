@@ -17,7 +17,6 @@ public class TreatmentSelectionServlet extends HttpServlet {
             throws ServletException, IOException {
 
         String patId = request.getParameter("patId");
-        System.out.println(patId);
         HttpSession session = request.getSession();
         session.setAttribute("patId", patId);
 

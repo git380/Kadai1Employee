@@ -1,5 +1,6 @@
 package L100.L101.servlet;
 
+import A100.model.Account;
 import L100.L101.model.Login;
 import L100.L101.model.LoginLogic;
 
@@ -35,13 +36,14 @@ public class LoginServlet extends HttpServlet {
         // ログイン処理の実行
         Login login = new Login(empId, empPasswd);
         LoginLogic bo = new LoginLogic();
-        boolean result = bo.execute(login);
+        Account result = bo.execute(login);
 
         // ログイン処理の成否によって処理を分岐
-        if (result) { // ログイン成功時
-            // セッションスコープにユーザーIDを保存
+        if (result != null) { // ログイン成功時
+            // セッションスコープにユーザーID従業員情報を保存
             HttpSession session = request.getSession();
             session.setAttribute("empId", empId);
+            session.setAttribute("emprole", result.getEmpRole());
 
             // フォワード
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/L100/L101/loginOK.jsp");

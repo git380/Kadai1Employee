@@ -21,7 +21,7 @@ public class PatientExpirationDAO extends DAOParam {
             java.util.Date currentDate = new java.util.Date();
 
             // SQL文の準備
-            String sql = "SELECT * FROM patient WHERE insurance_exp < ?";
+            String sql = "SELECT * FROM patient WHERE hokenexp < ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
             // パラメータの設定
