@@ -15,17 +15,19 @@ public class WelcomeServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        String emprole = request.getParameter("emprole");
-        HttpSession session = request.getSession();
-        session.setAttribute("emprole", emprole);
-
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/A100/welcome.jsp");
         dispatcher.forward(request, response);
     }
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/A100/welcome.jsp");
-        dispatcher.forward(request, response);
+
+        int emprole = Integer.parseInt(request.getParameter("emprole"));
+        if (emprole == 1){
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/A100/reception.jsp");
+            dispatcher.forward(request, response);
+        } else {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/A100/physician.jsp");
+            dispatcher.forward(request, response);
+        }
     }
 }
