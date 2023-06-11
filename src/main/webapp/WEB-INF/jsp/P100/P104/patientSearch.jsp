@@ -17,8 +17,8 @@
     <th>患者ID</th>
     <th>姓</th>
     <th>名</th>
-    <th>保険名</th>
-    <th>保険有効期限</th>
+    <th>保険証記号番号</th>
+    <th>有効期限</th>
   </tr>
   <% for (PatientExpiration patient : expiredPatients) { %>
   <tr>

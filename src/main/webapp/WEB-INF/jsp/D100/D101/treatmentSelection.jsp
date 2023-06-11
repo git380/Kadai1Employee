@@ -10,8 +10,14 @@
 <h1>薬投与指示画面</h1>
 <form action="TreatmentSelectionServlet" method="post">
     患者ID:<c:out value="${patId}"/><br>
-    薬剤ID:<input type="text" name="medicineId"><br>
-    数量:<input type="text" name="quantity"><br>
+    <input type="hidden" name="patId" value="${patId}">
+    <label for="medicine">薬剤名:</label>
+    <select name="medicineId" id="medicine">
+        <c:forEach var="medicine" items="${medicines}">
+            <option value="${medicine.medicineId}">${medicine.medicineName}</option>
+        </c:forEach>
+    </select><br>
+    数量:<input type="number" name="quantity"><br>
     実施日:<input type="date" name="impDate"><br>
     <input type="submit" value="処置指示">
 </form>

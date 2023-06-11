@@ -1,5 +1,10 @@
 package D100.D101.servlet;
 
+import D100.D101.model.Medicine;
+import D100.D101.model.MedicineLogic;
+import P100.P105.model.PatientSearch;
+import P100.P105.model.PatientSearchLogic;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet("/TreatmentSelectionServlet")
 public class TreatmentSelectionServlet extends HttpServlet {
@@ -15,10 +22,26 @@ public class TreatmentSelectionServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // リクエストパラメータの取得
+        request.setCharacterEncoding("UTF-8");
 
+        // 全件検索で処置ボタンが押されたpatidを取得
         String patId = request.getParameter("patId");
-        HttpSession session = request.getSession();
-        session.setAttribute("patId", patId);
+
+        // 患者の検索
+        MedicineLogic medicineLogic = new MedicineLogic();
+        List<Medicine> medicines = medicineLogic.getMedicines();
+
+        /*// デバッグ用に中身を出力
+        for (Medicine medicine : medicines) {
+            System.out.println("Medicine ID: " + medicine.getMedicineId());
+            System.out.println("Medicine Name: " + medicine.getMedicineName());
+            System.out.println("Unit: " + medicine.getUnit());
+        }*/
+
+        // 検索結果をリクエスト属性に設定
+        request.setAttribute("patId", patId);
+        request.setAttribute("medicines", medicines);
 
         // フォワード
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/D100/D101/treatmentSelection.jsp");

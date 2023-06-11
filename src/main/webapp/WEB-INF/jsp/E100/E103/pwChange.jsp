@@ -9,6 +9,7 @@
 <body>
 <h1>パスワードの変更</h1>
 <form action="PwChangeServlet" method="post">
+  <input type="hidden" name="emprole" value="${emprole}">
   <label>新しいパスワードを入力してください</label><br>
   PW:<input type="text" name="empPasswd"><br>
   <input type="submit" value="変更">
