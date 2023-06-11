@@ -19,7 +19,19 @@
   <input type="number" id="hokenmei" name="hokenmei"><br>
   <label for="hokenexp">有効期限:</label>
   <input type="date" id="hokenexp" name="hokenexp"><br>
-  <input type="submit" value="登録">
+  <input type="submit" value="登録" disabled>
 </form>
+<script>
+  const form = document.querySelector('form');
+  const submitButton = form.querySelector('input[type=submit]');
+  const inputs = form.querySelectorAll('input[type=text], input[type=number], input[type=date]');
+
+  inputs.forEach(input => {
+    input.addEventListener('input', () => {
+      const empty = Array.from(inputs).some(input => !input.value);
+      submitButton.disabled = empty;
+    });
+  });
+</script>
 </body>
 </html>

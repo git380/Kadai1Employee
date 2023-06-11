@@ -10,6 +10,8 @@
 </head>
 <body>
 <h1>保険証期限確認結果</h1>
+<h3>現在<br>${date}</h3>
+<h2>有効期限が切れた患者</h2>
 <% List<PatientExpiration> expiredPatients = (List<PatientExpiration>) request.getAttribute("expiredPatients"); %>
 <% if (expiredPatients != null && !expiredPatients.isEmpty()) { %>
 <table>

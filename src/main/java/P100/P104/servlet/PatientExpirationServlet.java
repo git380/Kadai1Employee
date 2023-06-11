@@ -22,6 +22,7 @@ public class PatientExpirationServlet extends HttpServlet {
         List<PatientExpiration> expiredPatients = expirationLogic.searchExpired();
 
         request.setAttribute("expiredPatients", expiredPatients);
+        request.setAttribute("date", new java.sql.Date(new java.util.Date().getTime()));
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/P100/P104/patientSearch.jsp");
         dispatcher.forward(request, response);

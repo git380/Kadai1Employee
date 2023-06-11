@@ -1,6 +1,6 @@
-package P100.P105.servlet;
+package P100.P102.servlet;
 
-import P100.P105.model.PatientSearchLogic;
+import P100.P102.model.PatientUpdateLogic;
 import P100.P105.model.PatientSearch;
 
 import javax.servlet.RequestDispatcher;
@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet("/PatientSearchServlet")
-public class PatientSearchServlet extends HttpServlet {
+@WebServlet("/PatientAllServlet")
+public class PatientAllServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -22,21 +22,14 @@ public class PatientSearchServlet extends HttpServlet {
         request.setCharacterEncoding("UTF-8");
 
         // 患者の検索
-        PatientSearchLogic searchLogic = new PatientSearchLogic();
-        ArrayList<PatientSearch> patients = searchLogic.searchPatient();
+        PatientUpdateLogic searchLogic = new PatientUpdateLogic();
+        ArrayList<PatientSearch> patients = searchLogic.allPatient();
 
         // 検索結果をリクエスト属性に設定
         request.setAttribute("patients", patients);
 
         // フォワード
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/P100/P105/patientSearchResult.jsp");
-        dispatcher.forward(request, response);
-    }
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        // フォワード
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/Kadai1Employee/WelcomeServlet");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/P100/P102/patientAll.jsp");
         dispatcher.forward(request, response);
     }
 }
