@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet("/PwChangeServlet")
@@ -25,12 +26,13 @@ public class PwChangeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // IDを取得
-        //Account account = new Account();
-        String empId = request.getParameter("empId");
+        // セッションスコープからユーザーIDを取得
+        HttpSession session = request.getSession();
+        String empId = (String) session.getAttribute("empId");
+        int emprole = (int) session.getAttribute("emprole");
 
         // 変更するパスワードを取得
-        String empPasswd = request.getParameter("empPasswd");
+        String empPasswd = request.getParameter("empPasswd1");
 
         // 変更処理の実行
         PwChangeLogic bo = new PwChangeLogic();
@@ -43,6 +45,10 @@ public class PwChangeServlet extends HttpServlet {
             request.setAttribute("message", "PWの変更に失敗しました");
         }*/
 
-        response.sendRedirect("/Kadai1Employee/");
+        System.out.println(empId + " " + empPasswd);
+
+        request.setAttribute("emprole", emprole);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/E100/E103/changeOK.jsp");
+        dispatcher.forward(request, response);
     }
 }

@@ -19,8 +19,20 @@
     </select><br>
     数量:<input type="number" name="quantity"><br>
     実施日:<input type="date" name="impDate"><br>
-    <input type="submit" value="処置指示">
+    <input type="submit" value="処置指示" disabled>
 </form>
+<script>
+    const form = document.querySelector('form');
+    const submitButton = form.querySelector('input[type=submit]');
+    const inputs = form.querySelectorAll('input[type=number], input[type=date]');
+
+    inputs.forEach(input => {
+        input.addEventListener('input', () => {
+            const empty = Array.from(inputs).some(input => !input.value);
+            submitButton.disabled = empty;
+        });
+    });
+</script>
 </body>
 </html>
 

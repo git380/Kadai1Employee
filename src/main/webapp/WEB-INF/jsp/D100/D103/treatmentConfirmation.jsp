@@ -14,7 +14,8 @@
 <p>数量: ${quantity}</p>
 <p>実施日: ${impDate}</p>
 <form action="/Kadai1Employee/WelcomeServlet" method="post">
-    <input type="submit" value="戻る">
+    <input type="hidden" name="emprole" value="2">
+    <input type="submit" value="トップへ">
 </form>
 </body>
 </html>
