@@ -3,12 +3,31 @@ package P100.P101.dao;
 import A100.dao.DAOParam;
 import P100.P101.model.PatientRegistration;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class PatientDAO extends DAOParam {
+    // 患者を検索するメソッド
+    public boolean nullPatient(String patid) {
+        String patSQLId = null;
+
+        try (Connection connection = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
+            // SQL文の準備
+            String sql = "SELECT * FROM patient WHERE patid = ?";
+            PreparedStatement pStmt = connection.prepareStatement(sql);
+            pStmt.setString(1, patid);
+
+            // SELECTを実行し、結果表を取得
+            ResultSet resultSet = pStmt.executeQuery();
+            if (resultSet.next()) {
+                // 取得した結果を追加
+                patSQLId = resultSet.getString("patid");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        // 検索結果のリストを返す
+        return patSQLId == null;
+    }
     public void insertPatient(PatientRegistration patient) {
         // データベースへ接続
         try (Connection connection = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {

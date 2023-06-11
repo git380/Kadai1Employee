@@ -7,9 +7,9 @@
 </head>
 <body>
 <h2 style="color: red">エラーが発生しました</h2>
-<p>ID・パスワードをもう一度確認してください。</p>
-<form action="/Kadai1Employee/LoginServlet" method="get">
-  <input type="submit" value="ログイン画面へ戻る">
+<p>IDが一致しています。</p>
+<form action="/Kadai1Employee/PatientRegistrationServlet" method="get">
+  <input type="submit" value="登録画面へ戻る">
 </form>
 </body>
 </html>

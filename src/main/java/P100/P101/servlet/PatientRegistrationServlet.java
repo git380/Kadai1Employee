@@ -35,13 +35,21 @@ public class PatientRegistrationServlet extends HttpServlet {
         String hokenmei = request.getParameter("hokenmei");
         String hokenexp = request.getParameter("hokenexp");
 
-        // 登録処理の実行
-        PatientRegistration patient = new PatientRegistration(patId, patFname, patLname, hokenmei, hokenexp);
         PatientRegistrationLogic bo = new PatientRegistrationLogic();
-        bo.newPatient(patient);
 
-        System.out.println(patId + patFname + patLname + hokenmei + hokenexp);
+        if (bo.nullPatient(patId)) {//IDかぶりなし
+            // 登録処理の実行
+            PatientRegistration patient = new PatientRegistration(patId, patFname, patLname, hokenmei, hokenexp);
+            bo.newPatient(patient);
 
-        response.sendRedirect("/Kadai1Employee/WelcomeServlet");
+            System.out.println(patId + patFname + patLname + hokenmei + hokenexp);
+            // フォワード
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/P100/P101/registrationOK.jsp");
+            dispatcher.forward(request, response);
+        } else {
+            // フォワード
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/P100/P101/registrationError.jsp");
+            dispatcher.forward(request, response);
+        }
     }
 }

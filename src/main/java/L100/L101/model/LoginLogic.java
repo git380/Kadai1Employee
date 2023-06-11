@@ -9,9 +9,4 @@ public class LoginLogic {
         Account account = dao.findByLogin(login);
         return account;
     }
-
-    public void emPpasswd(String empId, String emPpasswd) {
-        AccountDAO dao = new AccountDAO();
-        dao.passwordChange(empId, emPpasswd);
-    }
 }

@@ -16,7 +16,7 @@
   <label for="patLname">姓:</label>
   <input type="text" id="patLname" name="patLname"><br>
   <label for="hokenmei">保険証記号番号:</label>
-  <input type="number" id="hokenmei" name="hokenmei"><br>
+  <input type="text" id="hokenmei" name="hokenmei"><br>
   <label for="hokenexp">有効期限:</label>
   <input type="date" id="hokenexp" name="hokenexp"><br>
   <input type="submit" value="登録" disabled>
