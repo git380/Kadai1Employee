@@ -11,8 +11,8 @@
 <form action="PwChangeServlet" method="post">
   <input type="hidden" name="emprole" value="${emprole}">
   <label>新しいパスワードを入力してください</label><br>
-  PW:<input type="password" name="empPasswd1" required><br>
-  PW:<input type="password" name="empPasswd2" required><br>
+  パスワード:<input type="password" name="empPasswd1" required><br>
+  パスワード:<input type="password" name="empPasswd2" required><br>
   <input type="submit" value="変更" disabled>
 </form>
 
