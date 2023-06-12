@@ -17,7 +17,7 @@
 </form>
 
 <script>
-  const inputs = document.querySelectorAll('input[type=text]');
+  const inputs = document.querySelectorAll('input[type=password]');
   const submitButton = document.querySelector('input[type=submit]');
   Array.from(inputs).forEach(input => {
     input.addEventListener('change', () => {

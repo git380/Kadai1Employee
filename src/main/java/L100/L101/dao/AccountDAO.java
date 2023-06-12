@@ -2,6 +2,7 @@ package L100.L101.dao;
 
 import A100.dao.DAOParam;
 import A100.model.Account;
+import L100.L101.hash.SaltUserPassword;
 import L100.L101.model.Login;
 
 import java.sql.*;
@@ -17,7 +18,7 @@ public class AccountDAO extends DAOParam {
             String sql = "SELECT * FROM employee WHERE empid = ? AND emppasswd = ?";
             PreparedStatement pStmt = conn.prepareStatement(sql);
             pStmt.setString(1, login.getEmpId());
-            pStmt.setString(2, login.getEmppasswd());
+            pStmt.setString(2, new SaltUserPassword().getDigest(login.getEmpId(),login.getEmppasswd()));
 
             // SELECTを実行し、結果表を取得
             ResultSet rs = pStmt.executeQuery();
@@ -42,18 +43,5 @@ public class AccountDAO extends DAOParam {
         }
         // 見つかったユーザーまたはnullを返す
         return account;
-    }
-
-    public void passwordChange(String empId, String emPpasswd) {
-        // データベースへ接続
-        try (Connection connection = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
-            String sql = "UPDATE employee SET emppasswd = ? WHERE empid = ? ";
-            PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, emPpasswd);
-            statement.setString(2, empId);
-            statement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 }

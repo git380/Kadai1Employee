@@ -15,7 +15,7 @@
     <input type="hidden" name="oldhokenexp" value="${hokenexp}">
 
     患者ID: ${patId}<br>
-    性: ${patFname}<br>
+    姓: ${patFname}<br>
     名: ${patLname}<br>
 
     <label for="hokenmei">保険証記号番号:</label>
