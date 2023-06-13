@@ -17,7 +17,7 @@
             <option value="${medicine.medicineId}">${medicine.medicineName}</option>
         </c:forEach>
     </select><br>
-    数量:<input type="number" name="quantity"><br>
+    数量:<input type="number" name="quantity" min="0"><br>
     実施日:<input type="date" name="impDate"><br>
     <input type="submit" value="処置指示" disabled>
 </form>
