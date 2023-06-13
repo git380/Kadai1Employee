@@ -11,6 +11,7 @@ public class PatientUpdateLogic {
         PatientSearchDAO dao = new PatientSearchDAO();
         return dao.searchPatient();
     }
+
     public void updatePatient(PatientUpdate patientUpdate) {
         PatientUpdateDAO dao = new PatientUpdateDAO();
         dao.updatePatient(patientUpdate);

@@ -1,6 +1,6 @@
 package A100.model;
 
-public class Account{
+public class Account {
     private String empId;
     private String empFName;
     private String empLName;

@@ -2,14 +2,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>変更完了</title>
+    <meta charset="UTF-8">
+    <title>変更完了</title>
 </head>
 <body>
 <p>変更完了</p>
 <form action="/Kadai1Employee/WelcomeServlet" method="post">
-  <input type="hidden" name="emprole" value="${emprole}">
-  <input type="submit" value="トップへ">
+    <input type="hidden" name="emprole" value="${emprole}">
+    <input type="submit" value="トップへ">
 </form>
 </body>
 </html>

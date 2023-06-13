@@ -6,7 +6,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet("/WelcomeServlet")
@@ -18,11 +17,12 @@ public class WelcomeServlet extends HttpServlet {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/A100/welcome.jsp");
         dispatcher.forward(request, response);
     }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         int emprole = Integer.parseInt(request.getParameter("emprole"));
-        if (emprole == 1){
+        if (emprole == 1) {
             RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/A100/reception.jsp");
             dispatcher.forward(request, response);
         } else {

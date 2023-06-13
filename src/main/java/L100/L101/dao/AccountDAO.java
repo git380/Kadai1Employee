@@ -18,7 +18,7 @@ public class AccountDAO extends DAOParam {
             String sql = "SELECT * FROM employee WHERE empid = ? AND emppasswd = ?";
             PreparedStatement pStmt = conn.prepareStatement(sql);
             pStmt.setString(1, login.getEmpId());
-            pStmt.setString(2, new SaltUserPassword().getDigest(login.getEmpId(),login.getEmppasswd()));
+            pStmt.setString(2, new SaltUserPassword().getDigest(login.getEmpId(), login.getEmppasswd()));
 
             // SELECTを実行し、結果表を取得
             ResultSet rs = pStmt.executeQuery();

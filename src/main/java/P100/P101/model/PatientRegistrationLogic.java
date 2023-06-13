@@ -7,6 +7,7 @@ public class PatientRegistrationLogic {
         PatientDAO dao = new PatientDAO();
         return dao.nullPatient(patid);
     }
+
     public void newPatient(PatientRegistration patient) {
         PatientDAO dao = new PatientDAO();
         dao.insertPatient(patient);

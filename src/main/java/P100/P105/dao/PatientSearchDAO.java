@@ -3,11 +3,7 @@ package P100.P105.dao;
 import A100.dao.DAOParam;
 import P100.P105.model.PatientSearch;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class PatientSearchDAO extends DAOParam {

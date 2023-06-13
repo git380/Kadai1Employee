@@ -1,7 +1,7 @@
 package P100.P105.servlet;
 
-import P100.P105.model.PatientSearchLogic;
 import P100.P105.model.PatientSearch;
+import P100.P105.model.PatientSearchLogic;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

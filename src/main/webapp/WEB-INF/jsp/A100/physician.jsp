@@ -2,8 +2,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>医師画面</title>
+    <meta charset="UTF-8">
+    <title>医師画面</title>
 </head>
 <body>
 <h1>ようこそ!医師画面です。</h1>

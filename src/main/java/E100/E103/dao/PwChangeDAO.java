@@ -15,7 +15,7 @@ public class PwChangeDAO extends DAOParam {
         try (Connection connection = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {
             String sql = "UPDATE employee SET emppasswd = ? WHERE empid = ? ";
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, new SaltUserPassword().getDigest(empId,empPasswd));
+            statement.setString(1, new SaltUserPassword().getDigest(empId, empPasswd));
             statement.setString(2, empId);
             statement.executeUpdate();
         } catch (SQLException e) {

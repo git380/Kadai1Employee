@@ -3,11 +3,7 @@ package D100.D101.dao;
 import A100.dao.DAOParam;
 import D100.D101.model.Medicine;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class MedicineDAO extends DAOParam {

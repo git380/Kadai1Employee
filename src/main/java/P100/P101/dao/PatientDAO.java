@@ -28,6 +28,7 @@ public class PatientDAO extends DAOParam {
         // 検索結果のリストを返す
         return patSQLId == null;
     }
+
     public void insertPatient(PatientRegistration patient) {
         // データベースへ接続
         try (Connection connection = DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASS)) {

@@ -14,6 +14,7 @@ import java.io.IOException;
 @WebServlet("/TreatmentConfirmationServlet")
 public class TreatmentConfirmationServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // リクエストパラメータから処理情報を取得
         String patId = request.getParameter("patId");

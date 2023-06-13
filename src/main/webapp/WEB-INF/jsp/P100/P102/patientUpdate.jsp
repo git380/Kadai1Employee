@@ -53,7 +53,7 @@
     const checkboxes = document.querySelectorAll('input[type=checkbox]');
     const submitButton = document.querySelector('input[type=submit]');
     Array.from(checkboxes).forEach(checkbox => {
-        checkbox.addEventListener('change', () => {
+        checkbox.addEventListener('input', () => {
             submitButton.disabled = Array.from(checkboxes).every(checkbox => !checkbox.checked);
         });
     });
