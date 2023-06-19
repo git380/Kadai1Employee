@@ -25,38 +25,15 @@
            onchange="
            document.getElementById('hihokenmei').disabled = this.checked;
            document.getElementById('hokenmei').disabled = !this.checked;
-           const submitButton = document.querySelector('input[type=submit]');
-           const checkboxes = document.querySelectorAll('input[type=checkbox]');
-           submitButton.disabled = Array.from(checkboxes).every(checkbox => !checkbox.checked);
          ">変更する<br>
 
     <label for="hokenexp">有効期限:</label>
-    <input type="hidden" id="hihokenexp" name="hokenexp" value="${hokenexp}">
-    <input type="hidden" id="noChange" name="noChange" value="0">
     <input type="date" id="hokenexp" name="hokenexp" value="${hokenexp}">
-    <input type="checkbox" id="expcheckbox" name="checkbox"
-           onchange="
-           document.getElementById('hihokenexp').disabled = this.checked;
-           document.getElementById('noChange').disabled = this.checked;
-           document.getElementById('hokenexp').disabled = !this.checked;
-           const submitButton = document.querySelector('input[type=submit]');
-           const checkboxes = document.querySelectorAll('input[type=checkbox]');
-           submitButton.disabled = Array.from(checkboxes).every(checkbox => !checkbox.checked);
-         ">変更する<br>
 
-    <input type="submit" value="変更" disabled>
+    <input type="submit" value="変更">
 </form>
-
 <script>
     document.getElementById('hokenmei').disabled = true;
-    document.getElementById('hokenexp').disabled = true;
-    const checkboxes = document.querySelectorAll('input[type=checkbox]');
-    const submitButton = document.querySelector('input[type=submit]');
-    Array.from(checkboxes).forEach(checkbox => {
-        checkbox.addEventListener('input', () => {
-            submitButton.disabled = Array.from(checkboxes).every(checkbox => !checkbox.checked);
-        });
-    });
 </script>
 </body>
 </html>
