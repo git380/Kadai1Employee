@@ -28,7 +28,7 @@
          ">変更する<br>
 
     <label for="hokenexp">有効期限:</label>
-    <input type="date" id="hokenexp" name="hokenexp" value="${hokenexp}">
+    <input type="date" id="hokenexp" name="hokenexp" value="${hokenexp}"><br>
 
     <input type="submit" value="変更">
 </form>

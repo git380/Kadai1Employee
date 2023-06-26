@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Objects;
 
 @WebServlet("/PatientUpdateServlet")
 public class PatientUpdateServlet extends HttpServlet {
@@ -54,7 +53,6 @@ public class PatientUpdateServlet extends HttpServlet {
         String hokenmei = request.getParameter("hokenmei");
         String hokenexp = request.getParameter("hokenexp");
         String oldhokenexp = request.getParameter("oldhokenexp");
-        String noChange = request.getParameter("noChange");
 
         request.setAttribute("patId", patId);
         request.setAttribute("patFname", patFname);
@@ -64,37 +62,27 @@ public class PatientUpdateServlet extends HttpServlet {
 
         System.out.println(patId + " " + hokenmei + " " + hokenexp);
 
-        if (Objects.equals(noChange, "0")) {
-            // 登録処理の実行
-            PatientUpdate patient = new PatientUpdate(patId, hokenmei, hokenexp);
-            PatientUpdateLogic bo = new PatientUpdateLogic();
-            bo.updatePatient(patient);
-
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/P100/P102/changeOK.jsp");
+        if (hokenexp == null || hokenexp.equals("")) {
+            request.setAttribute("hokenexp", oldhokenexp);
+            request.setAttribute("error", 0);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/P100/P102/changeError.jsp");
             dispatcher.forward(request, response);
         } else {
-            if (hokenexp == null || hokenexp.equals("")) {
-                request.setAttribute("hokenexp", oldhokenexp);
-                request.setAttribute("error", 0);
-                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/P100/P102/changeError.jsp");
+            // hokenexp の日付を LocalDate に変換
+            LocalDate expirationDate = LocalDate.parse(hokenexp, formatter);
+            LocalDate oldExpirationDate = LocalDate.parse(oldhokenexp, formatter);
+            if (expirationDate.isAfter(oldExpirationDate)) {
+                // 登録処理の実行
+                PatientUpdate patient = new PatientUpdate(patId, hokenmei, hokenexp);
+                PatientUpdateLogic bo = new PatientUpdateLogic();
+                bo.updatePatient(patient);
+
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/P100/P102/changeOK.jsp");
                 dispatcher.forward(request, response);
             } else {
-                // hokenexp の日付を LocalDate に変換
-                LocalDate expirationDate = LocalDate.parse(hokenexp, formatter);
-                LocalDate oldExpirationDate = LocalDate.parse(oldhokenexp, formatter);
-                if (expirationDate.isAfter(oldExpirationDate)) {
-                    // 登録処理の実行
-                    PatientUpdate patient = new PatientUpdate(patId, hokenmei, hokenexp);
-                    PatientUpdateLogic bo = new PatientUpdateLogic();
-                    bo.updatePatient(patient);
-
-                    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/P100/P102/changeOK.jsp");
-                    dispatcher.forward(request, response);
-                } else {
-                    request.setAttribute("error", 1);
-                    RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/P100/P102/changeError.jsp");
-                    dispatcher.forward(request, response);
-                }
+                request.setAttribute("error", 1);
+                RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/P100/P102/changeError.jsp");
+                dispatcher.forward(request, response);
             }
         }
     }
