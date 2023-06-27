@@ -19,12 +19,6 @@ public class PatientUpdateServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // セッションスコープからユーザーIDを取得
-        if (request.getSession().getAttribute("empId") == null) {
-            // ログイペレイト
-            response.sendRedirect("LoginServlet");
-            return;
-        }
         // リクエストパラメータの取得
         request.setCharacterEncoding("UTF-8");
 
@@ -34,6 +28,13 @@ public class PatientUpdateServlet extends HttpServlet {
         String patLname = request.getParameter("patLname");
         String hokenmei = request.getParameter("hokenmei");
         String hokenexp = request.getParameter("hokenexp");
+
+        // 患者IDがない場合
+        if (patId == null) {
+            // ログイペレイト
+            response.sendRedirect("WelcomeServlet");
+            return;
+        }
 
         request.setAttribute("patId", patId);
         request.setAttribute("patFname", patFname);

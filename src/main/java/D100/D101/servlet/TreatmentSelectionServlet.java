@@ -18,18 +18,18 @@ public class TreatmentSelectionServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // セッションスコープからユーザーIDを取得
-        if (request.getSession().getAttribute("empId") == null) {
-            // ログイペレイト
-            response.sendRedirect("LoginServlet");
-            return;
-        }
-
         // リクエストパラメータの取得
         request.setCharacterEncoding("UTF-8");
 
         // 全件検索で処置ボタンが押されたpatidを取得
         String patId = request.getParameter("patId");
+
+        // 患者IDがない場合
+        if (patId == null) {
+            // ログイペレイト
+            response.sendRedirect("WelcomeServlet");
+            return;
+        }
 
         // 患者の検索
         MedicineLogic medicineLogic = new MedicineLogic();
