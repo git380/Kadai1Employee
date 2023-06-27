@@ -18,6 +18,13 @@ public class TreatmentSelectionServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // セッションスコープからユーザーIDを取得
+        if (request.getSession().getAttribute("empId") == null) {
+            // ログイペレイト
+            response.sendRedirect("LoginServlet");
+            return;
+        }
+
         // リクエストパラメータの取得
         request.setCharacterEncoding("UTF-8");
 

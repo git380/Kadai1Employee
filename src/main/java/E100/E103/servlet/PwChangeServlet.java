@@ -17,6 +17,12 @@ public class PwChangeServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // セッションスコープからユーザーIDを取得
+        if (request.getSession().getAttribute("empId") == null) {
+            // ログイペレイト
+            response.sendRedirect("LoginServlet");
+            return;
+        }
 
         // フォワード
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/E100/E103/pwChange.jsp");

@@ -18,6 +18,13 @@ public class PatientExpirationServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // セッションスコープからユーザーIDを取得
+        if (request.getSession().getAttribute("empId") == null) {
+            // ログイペレイト
+            response.sendRedirect("LoginServlet");
+            return;
+        }
+
         PatientExpirationLogic expirationLogic = new PatientExpirationLogic();
         List<PatientExpiration> expiredPatients = expirationLogic.searchExpired();
 
