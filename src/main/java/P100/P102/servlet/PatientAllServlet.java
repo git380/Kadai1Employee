@@ -18,12 +18,16 @@ public class PatientAllServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // セッションスコープからユーザーIDを取得
-        if (request.getSession().getAttribute("empId") == null) {
+        // セッションスコープからロールを取得
+        if (request.getSession().getAttribute("emprole") == null) {
             // ログイペレイト
             response.sendRedirect("LoginServlet");
             return;
+        } else if ((int) request.getSession().getAttribute("emprole") == 2) {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/A100/physician.jsp");
+            dispatcher.forward(request, response);
         }
+
         // リクエストパラメータの取得
         request.setCharacterEncoding("UTF-8");
 
