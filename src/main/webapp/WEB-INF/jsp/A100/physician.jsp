@@ -10,5 +10,6 @@
 <li><a href="/Kadai1Employee/LogoutServlet">ログアウト</a></li>
 <li><a href="/Kadai1Employee/PwChangeServlet">パスワードの変更</a></li>
 <li><a href="/Kadai1Employee/PatientSearchServlet">患者の全検索</a></li>
+<li><a href="/Kadai1Employee/ChatServlet">チャット機能</a></li>
 </body>
 </html>

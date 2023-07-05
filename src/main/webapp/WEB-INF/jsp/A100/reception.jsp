@@ -12,5 +12,6 @@
 <li><a href="/Kadai1Employee/PatientRegistrationServlet">患者を登録する</a></li>
 <li><a href="/Kadai1Employee/PatientAllServlet">患者の保険情報の変更</a></li>
 <li><a href="/Kadai1Employee/PatientExpirationServlet">保険証期限確認</a></li>
+<li><a href="/Kadai1Employee/ChatServlet">チャット機能</a></li>
 </body>
 </html>

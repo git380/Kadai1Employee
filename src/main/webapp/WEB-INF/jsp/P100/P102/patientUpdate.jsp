@@ -12,7 +12,7 @@
     <input type="hidden" name="patId" value="${patId}">
     <input type="hidden" name="patFname" value="${patFname}">
     <input type="hidden" name="patLname" value="${patLname}">
-    <input type="hidden" name="oldhokenexp" value="${hokenexp}">
+    <input type="hidden" name="olhrzdhdhokenexp" value="${hokenexp}">
 
     患者ID: ${patId}<br>
     姓: ${patFname}<br>
