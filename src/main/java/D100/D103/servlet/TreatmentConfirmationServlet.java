@@ -15,6 +15,13 @@ import java.io.IOException;
 public class TreatmentConfirmationServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // ログイペレイト
+        response.sendRedirect("WelcomeServlet");
+    }
+
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // リクエストパラメータから処理情報を取得
         String patId = request.getParameter("patId");

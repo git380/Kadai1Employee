@@ -12,6 +12,12 @@ import java.io.IOException;
 public class TreatmentDeleteServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        // ログイペレイト
+        response.sendRedirect("WelcomeServlet");
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/D100/D102/treatmentDelete.jsp");
         dispatcher.forward(request, response);
