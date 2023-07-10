@@ -34,9 +34,9 @@ public class ChatServlet extends HttpServlet {
 
         String role;
         if ((int) request.getSession().getAttribute("emprole") == 1) {
-            role = "　受付";
+            role = "受付";
         } else {
-            role = "　医師";
+            role = "医師";
         }
 
         request.setAttribute("name", name);
